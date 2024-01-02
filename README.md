@@ -3,7 +3,7 @@
 
 ## Overview
 
-This activity presents a real-world situation in which we have been tasked with creating code for analyzing the financial records of a company. A financial dataset have been provided in the `starter/index.js` file.
+This activity presents a real-world situation in which we have been tasked with creating code for analyzing the financial records of a company. The actual code and the financial dataset have been provided in the `index.js` file. 
 
 
 ## Enviroment
