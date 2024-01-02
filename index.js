@@ -1,4 +1,4 @@
-var finances = [
+let finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
   ['Mar-2010', 322013],
@@ -86,3 +86,40 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+let totalMonths = finances.length;
+let totalProfit = 0;
+let totalChange = 0;
+let maxIncrease = { date: '', amount: 0 };
+let maxDecrease = { date: '', amount: 0 };
+let prevProfit = finances[0][1];
+
+for (let i = 1; i < finances.length; i++) {
+ let currentProfit = finances[i][1];
+ let change = currentProfit - prevProfit;
+ totalProfit += currentProfit;
+ totalChange += change;
+ prevProfit = currentProfit;
+
+ if (change > maxIncrease.amount) {
+   maxIncrease = { date: finances[i][0], amount: change };
+ }
+
+ if (change < maxDecrease.amount) {
+   maxDecrease = { date: finances[i][0], amount: change };
+ }
+}
+
+let avgChange = totalChange / (totalMonths - 1);
+let averageChange = avgChange.toFixed(2);
+
+console.log("-------------------------------------------")
+console.log("Financial Analysis")
+console.log("-------------------------------------------")
+console.log("Number of Months is " + totalMonths);
+console.log("Total Profit/Losses are " +"$"+ totalProfit);
+console.log("Average Change is: " +"$"+ averageChange);
+console.log("Greatest Increase: " + maxIncrease.date, "$"+maxIncrease.amount);
+console.log("Greatest Decrease: " + maxDecrease.date, "$"+maxDecrease.amount);
+console.log("-------------------------------------------")
+
